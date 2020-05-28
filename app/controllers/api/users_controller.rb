@@ -5,11 +5,15 @@ class Api::UsersController < ApplicationController
 
         if @user.save
             login!(@user)
-            redirect_to user_url(@user)
+            render :show
         else 
             flash.now[:errors] = @user.errors.full_messages
         end
     end
+
+    # def show
+    #     @user = current_user
+    # end
 
 
 
